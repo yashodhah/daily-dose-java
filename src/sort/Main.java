@@ -1,5 +1,6 @@
 package sort;
 
+import algorithms.BinarySearch;
 import leet_code.MergeSortedArrays;
 import leet_code.ReverseInteger;
 import leet_code.ReverseString;
@@ -9,8 +10,8 @@ import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) {
-//        int[] list = new int[]{12, 11, 13, 5, 6};
-//        InsertionSort.sort(list);
+        int[] list = new int[]{-1, 0, 5, 6, 8, 9, 12};
+        System.out.println(BinarySearch.search(list, 12));
 
 //        int[] list1 = new int[]{-1,0,0,3,3,3,0,0,0};
 //        int[] list2 = new int[]{1,2,2};
@@ -26,6 +27,6 @@ public class Main {
 //        int a = -123;
 //        ReverseInteger.reverse(a);
 
-        System.out.println(StrStr.strStr("mississippi", "issip"));
+//        System.out.println(StrStr.strStr("mississippi", "issip"));
     }
 }
