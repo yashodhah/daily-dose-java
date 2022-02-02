@@ -8,10 +8,14 @@ import leet_code.StrStr;
 
 import java.util.Arrays;
 
+import static algorithms.MoveZeros.moveZeroes;
+import static algorithms.MoveZeros.smartMoveZeroes;
+
 public class Main {
     public static void main(String[] args) {
         int[] list = new int[]{-1, 0, 5, 6, 8, 9, 12};
-        System.out.println(BinarySearch.search(list, 12));
+        smartMoveZeroes(list);
+        System.out.println(list);
 
 //        int[] list1 = new int[]{-1,0,0,3,3,3,0,0,0};
 //        int[] list2 = new int[]{1,2,2};
@@ -28,5 +32,7 @@ public class Main {
 //        ReverseInteger.reverse(a);
 
 //        System.out.println(StrStr.strStr("mississippi", "issip"));
+
+
     }
 }
