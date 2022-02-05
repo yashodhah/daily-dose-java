@@ -16,21 +16,20 @@ public class LongestSubstring {
 
         while (maxSoFar < remainCharLen) {
             startIdx++;
-            String str = "";
 
             int innerRefIdx = startIdx;
+            int counter = 0;
+            charMap.clear();
 
             while (innerRefIdx < s.length() && charMap.get(s.charAt(innerRefIdx)) == null) {
                 charMap.put(s.charAt(innerRefIdx), true);
 
-                str += s.charAt(innerRefIdx);
+                counter++;
                 innerRefIdx++;
             }
 
-            charMap.clear();
-
-            if (maxSoFar < str.length()) {
-                maxSoFar = str.length();
+            if (maxSoFar < counter) {
+                maxSoFar = counter;
             }
 
             remainCharLen = getRemainCharLen(s, startIdx);
