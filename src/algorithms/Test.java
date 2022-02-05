@@ -4,6 +4,7 @@ import org.junit.Assert;
 
 import static algorithms.SquaresOfSortedArr.getLastMinusIdx;
 import static algorithms.SquaresOfSortedArr.sortedSquares;
+import static leet_code.ReverseString.reverseString;
 
 public class Test {
     @org.junit.Test
@@ -33,5 +34,15 @@ public class Test {
 
 //        Assert.assertArrayEquals(new int[]{0, 1, 9, 16, 100}, sortedSquares(nums1));
         Assert.assertArrayEquals(new int[]{4, 9, 9, 49, 121}, sortedSquares(nums2));
+    }
+
+    @org.junit.Test
+    public void shouldReverseString() {
+        char[] char1 = new char[]{'t', 'e', 's', 't'};
+        char[] char2 = new char[]{'y', 'a', 's', 'h', 'o', 'd', 'h', 'a'};
+
+
+        reverseString(char2);
+        System.out.println(char1);
     }
 }

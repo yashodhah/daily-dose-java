@@ -1,5 +1,3 @@
-package sort;
-
 import algorithms.BinarySearch;
 import leet_code.MergeSortedArrays;
 import leet_code.ReverseInteger;
@@ -10,6 +8,7 @@ import java.util.Arrays;
 
 import static algorithms.MoveZeros.moveZeroes;
 import static algorithms.MoveZeros.smartMoveZeroes;
+import static leet_code.LongestSubstring.lengthOfLongestSubstring;
 
 public class Main {
     public static void main(String[] args) {
@@ -33,6 +32,7 @@ public class Main {
 
 //        System.out.println(StrStr.strStr("mississippi", "issip"));
 
+        lengthOfLongestSubstring("abcabcbb");
 
     }
 }
