@@ -32,7 +32,7 @@ public class Main {
 
 //        System.out.println(StrStr.strStr("mississippi", "issip"));
 
-        lengthOfLongestSubstring("abcabcbb");
+        lengthOfLongestSubstring("au");
 
     }
 }

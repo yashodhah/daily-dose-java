@@ -4,11 +4,14 @@ import java.util.HashMap;
 
 public class LongestSubstring {
     public static int lengthOfLongestSubstring(String s) {
+        if (s.length() == 1) {
+            return 1;
+        }
+
         HashMap<Character, Boolean> charMap = new HashMap();
 
         int remainCharLen = s.length();
         int maxSoFar = 0;
-
         int startIdx = -1;
 
         while (maxSoFar < remainCharLen) {
@@ -17,7 +20,7 @@ public class LongestSubstring {
 
             int innerRefIdx = startIdx;
 
-            while (charMap.get(s.charAt(innerRefIdx)) == null && innerRefIdx != s.length() - 1) {
+            while (innerRefIdx < s.length() && charMap.get(s.charAt(innerRefIdx)) == null) {
                 charMap.put(s.charAt(innerRefIdx), true);
 
                 str += s.charAt(innerRefIdx);
