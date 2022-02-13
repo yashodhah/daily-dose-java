@@ -13,6 +13,7 @@ public class Fibonacci {
 
     /**
      * F0 = 0, F1 =1
+     *
      * @param n
      * @return
      */
@@ -26,6 +27,12 @@ public class Fibonacci {
         return recursionFib(n - 1) + recursionFib(n - 2);
     }
 
+    /**
+     * Naive approach to cache the resolved data in global array
+     *
+     * @param n
+     * @return
+     */
     public static long recursionFibOpt(int n) {
         calls++;
 
@@ -33,24 +40,40 @@ public class Fibonacci {
             return n;
         }
 
-        long i;
-        long j;
 
-        if (resolvedValues[n - 1] != 0) {
-            i = resolvedValues[n - 1];
-        } else {
-            i = recursionFibOpt(n - 1);
+        if (resolvedValues[n] != 0) {
+            return resolvedValues[n];
         }
 
-        if (resolvedValues[n - 2] != 0) {
-            j = resolvedValues[n - 2];
-        } else {
-            j = recursionFibOpt(n - 2);
-        }
+        long i = recursionFibOpt(n - 1);
+        long j = recursionFibOpt(n - 2);
 
         resolvedValues[n] = i + j;
+
         return i + j;
     }
 
+    /**
+     * Cache in a growing array
+     */
+    public static long dpFibonacci(int n) {
+        long[] memoize = new long[n + 1];
+        return dpFibonacciRecursive(n, memoize);
+    }
+
+    public static long dpFibonacciRecursive(int n, long[] memoize) {
+        calls++;
+
+        if (n <= 1) {
+            return n;
+        }
+
+        if (memoize[n] != 0) {
+            return memoize[n];
+        }
+
+        memoize[n] = dpFibonacciRecursive(n - 1, memoize) + dpFibonacciRecursive(n - 2, memoize);
+        return memoize[n];
+    }
 
 }
