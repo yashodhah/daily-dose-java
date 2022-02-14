@@ -18,6 +18,8 @@ public class CoinChange {
             sortedArr[j] = 0;
             j--;
         }
+
+        return 0;
     }
 
 
@@ -30,6 +32,7 @@ public class CoinChange {
             return len + lenFromCache;
         }
 
+        return 0;
 
     }
 

@@ -1,8 +1,5 @@
 import algorithms.BinarySearch;
-import leet_code.MergeSortedArrays;
-import leet_code.ReverseInteger;
-import leet_code.ReverseString;
-import leet_code.StrStr;
+import leet_code.*;
 
 import java.util.Arrays;
 
@@ -12,9 +9,9 @@ import static leet_code.LongestSubstring.lengthOfLongestSubstring;
 
 public class Main {
     public static void main(String[] args) {
-        int[] list = new int[]{-1, 0, 5, 6, 8, 9, 12};
-        smartMoveZeroes(list);
-        System.out.println(list);
+//        int[] list = new int[]{-1, 0, 5, 6, 8, 9, 12};
+//        smartMoveZeroes(list);
+//        System.out.println(list);
 
 //        int[] list1 = new int[]{-1,0,0,3,3,3,0,0,0};
 //        int[] list2 = new int[]{1,2,2};
@@ -32,7 +29,9 @@ public class Main {
 
 //        System.out.println(StrStr.strStr("mississippi", "issip"));
 
-        lengthOfLongestSubstring("au");
+//        lengthOfLongestSubstring("au");
 
+        TwoSomeAdvanced arrayCrack = new TwoSomeAdvanced();
+        arrayCrack.twoSum(new int[]{0, 4, 3, 0}, 0);
     }
 }
