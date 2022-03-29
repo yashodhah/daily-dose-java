@@ -26,7 +26,7 @@ public class TwoSomeAdvanced {
             if (num > 0) {
                 updateIdx(num, arrayIdx, positiveNumIdx);
             } else if (num < 0) {
-                updateIdx(Math.abs(num), arrayIdx, negativeNumIdx);
+                updateIdx(num, arrayIdx, negativeNumIdx);
             } else {
                 zero = arrayIdx;
             }
@@ -36,7 +36,7 @@ public class TwoSomeAdvanced {
             if (remainNum > 0) {
                 return checkAvailabilityOnIdx(remainNum, positiveNumIdx, currentNum, currentIdx);
             } else if (remainNum < 0) {
-                return checkAvailabilityOnIdx(Math.abs(remainNum), negativeNumIdx, currentNum, currentIdx);
+                return checkAvailabilityOnIdx(remainNum, negativeNumIdx, currentNum, currentIdx);
             } else {
                 if (zero != null) {
                     return zero;
