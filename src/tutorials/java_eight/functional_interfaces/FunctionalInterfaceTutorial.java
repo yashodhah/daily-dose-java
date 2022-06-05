@@ -1,4 +1,6 @@
-package tutorials.functional_interfaces;
+package tutorials.java_eight.functional_interfaces;
+
+import java.util.Arrays;
 
 @FunctionalInterface
 interface Drawable {
@@ -8,7 +10,6 @@ interface Drawable {
         return "default draw";
     }
 }
-
 
 @FunctionalInterface
 interface Writable {
@@ -38,6 +39,16 @@ class DrawingBook {
         String value = "Circle";
         return this.value + " is Drawing";
     };
+
+    // TODO: Check this final case
+//    public void writeSomething() {
+//        String value1 = "Hello world";
+//
+//        Writable w = (p) -> {
+//            String value1 = p;
+//            return value1 + " is Drawing";
+//        };
+//    }
 }
 
 class FunctionalInterfaceTutorial {
@@ -46,5 +57,7 @@ class FunctionalInterfaceTutorial {
 
         System.out.println(drawingBook.d1.draw());
         System.out.println(drawingBook.d2.draw());
+
+        int min1 = Arrays.stream(new int[]{1, 2, 3, 4, 5}).min().orElse(0);
     }
 }

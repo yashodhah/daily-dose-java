@@ -1,44 +1,44 @@
 package dp;
 
-public class ClimbingStairs {
-    public static int climbStairs(int n) {
-        if (n == 1) {
-            return 1;
+import java.util.HashMap;
+import java.util.Map;
+
+/**
+ * DB : Bottom up approach
+ * Base Cases :
+ * n = 1 => 1
+ * n = 2 => 2
+ */
+class ClimbingStairs {
+        Map<Integer, Integer> prevSteps = new HashMap<>();
+        int nuOfFunctionCalls = 0;
+
+        public int climbStairs(int i) {
+            nuOfFunctionCalls++;
+
+            if (i <= 0 || i > 45) {
+                throw new RuntimeException("Not supported");
+            }
+
+            if (i <= 2) {
+                return i;
+            }
+
+            if (prevSteps.get(i) != null) {
+                return prevSteps.get(i);
+            }
+
+            prevSteps.put(i, climbStairs(i - 1) + climbStairs(i - 2));
+            return prevSteps.get(i);
         }
+}
 
-        int[] lastStepStatics = {1, 1};
-        return generateStepsR(n, 2, lastStepStatics);
-    }
+class AlgoRunner {
+    public static void main(String[] args) {
+        ClimbingStairs climbingStairs = new ClimbingStairs();
 
-    private static int generateStepsR(int n, int lastStep, int[] lastStepStatics) {
-        int numOfOnes = getNumberOfOnes(lastStepStatics);
-        int numOfTwos = getNumberOfTwos(lastStepStatics);
-
-        if (lastStep == n) {
-            return numOfOnes + numOfTwos;
-        }
-
-        setNumberOfOnes(lastStepStatics, numOfOnes + numOfTwos);
-        setNumberOfTwos(lastStepStatics, numOfOnes);
-
-        lastStep++;
-
-        return generateStepsR(n, lastStep, lastStepStatics);
-    }
-
-    private static int getNumberOfOnes(int[] lastStepStatics) {
-        return lastStepStatics[0];
-    }
-
-    private static int setNumberOfOnes(int[] lastStepStatics, int value) {
-        return lastStepStatics[0] = value;
-    }
-
-    private static int getNumberOfTwos(int[] lastStepStatics) {
-        return lastStepStatics[1];
-    }
-
-    private static int setNumberOfTwos(int[] lastStepStatics, int value) {
-        return lastStepStatics[1] = value;
+        System.out.println(climbingStairs.climbStairs(45));
+        System.out.println(climbingStairs.nuOfFunctionCalls);
     }
 }
+

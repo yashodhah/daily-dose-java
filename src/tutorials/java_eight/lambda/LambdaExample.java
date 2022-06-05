@@ -1,4 +1,4 @@
-package tutorials.lambda;
+package tutorials.java_eight.lambda;
 
 @FunctionalInterface
 interface Drawable {

@@ -1,4 +1,4 @@
-package tutorials.default_methods;
+package tutorials.java_eight.default_methods;
 
 interface Vehicle {
     String getBrand();
