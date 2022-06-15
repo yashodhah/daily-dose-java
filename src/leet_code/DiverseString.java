@@ -1,5 +1,7 @@
 package leet_code;
 
+import java.util.HashMap;
+
 public class DiverseString {
     public String solution(int A, int B, int C) {
         int maxSize = A + B + C;
