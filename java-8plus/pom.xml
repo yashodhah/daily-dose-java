@@ -4,12 +4,18 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
+    <parent>
+        <artifactId>daily-dose-java</artifactId>
+        <groupId>org.example</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+
     <groupId>org.example</groupId>
     <artifactId>java-8plus</artifactId>
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
+
     <modules>
-        <module>records</module>
         <module>sealed-classes</module>
         <module>records</module>
     </modules>
