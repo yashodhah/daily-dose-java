@@ -1,4 +1,4 @@
-package algorithms.lru;
+package leet_code.algorithms.lru;
 
 import java.util.Optional;
 

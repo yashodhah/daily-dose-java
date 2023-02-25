@@ -1,4 +1,4 @@
-package algorithms.lru;
+package leet_code.algorithms.lru;
 
 import data_structures.linked_list.Node;
 

@@ -1,4 +1,4 @@
-package algorithms.lru;
+package leet_code.algorithms.lru;
 
 public class CacheItem<K, V> {
     K key;

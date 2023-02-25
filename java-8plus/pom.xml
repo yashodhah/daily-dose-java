@@ -18,6 +18,7 @@
     <modules>
         <module>sealed-classes</module>
         <module>records</module>
+        <module>aot</module>
     </modules>
 
 

@@ -1,4 +1,4 @@
-package algorithms;
+package leet_code.algorithms;
 
 public class SquaresOfSortedArr {
     public static int[] sortedSquares(int[] nums) {
