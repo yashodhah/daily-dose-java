@@ -54,4 +54,36 @@ public class SquaresOfSortedArr {
 
         return left - 1;
     }
+
+    /**
+     * Keep two pointers and form a new array by comparing the two pointers
+     * @param nums
+     * @return
+     */
+    public int[] sortedSquaresNew(int[] nums) {
+        int ph = nums.length - 1;
+        int pl = 0;
+        int[] sorted = new int[nums.length];
+
+        // TODO: Handle trivial cases
+        while (true) {
+            int hn = nums[ph];
+            int ln = nums[pl];
+
+            if (ph == pl) {
+                sorted[ph - pl] = hn * hn;
+                break;
+            }
+
+            if (hn * hn > ln * ln) {
+                sorted[ph - pl] = hn * hn;
+                ph -= 1;
+            } else {
+                sorted[ph - pl] = ln * ln;
+                pl += 1;
+            }
+        }
+
+        return sorted;
+    }
 }
