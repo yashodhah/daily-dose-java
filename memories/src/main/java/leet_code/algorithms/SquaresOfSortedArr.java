@@ -57,6 +57,7 @@ public class SquaresOfSortedArr {
 
     /**
      * Keep two pointers and form a new array by comparing the two pointers
+     *
      * @param nums
      * @return
      */
@@ -65,7 +66,7 @@ public class SquaresOfSortedArr {
         int pl = 0;
         int[] sorted = new int[nums.length];
 
-        // TODO: Handle trivial cases
+        // Can utilize a for loop here to keep tracking the index
         while (true) {
             int hn = nums[ph];
             int ln = nums[pl];

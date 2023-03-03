@@ -17,9 +17,17 @@
 
     <modules>
         <module>sealed-classes</module>
-        <module>records</module>
+        <module>record</module>
         <module>aot</module>
+        <module>utils</module>
     </modules>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+        </dependency>
+    </dependencies>
 
 
 </project>

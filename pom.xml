@@ -14,6 +14,7 @@
         <module>java-8</module>
         <module>memories</module>
         <module>common</module>
+        <module>SPI</module>
     </modules>
 
 
