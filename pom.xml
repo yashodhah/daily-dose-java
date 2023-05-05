@@ -15,6 +15,7 @@
         <module>memories</module>
         <module>common</module>
         <module>SPI</module>
+        <module>leet_code</module>
     </modules>
 
 
