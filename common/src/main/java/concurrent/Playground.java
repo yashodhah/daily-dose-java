@@ -6,8 +6,15 @@ class ConcurrentPlayground {
     public static void main(String[] args) {
         ConcurrentPlayground cp = new ConcurrentPlayground();
 
+
+        cp.start();
         cp.execute();
         cp.executorService();
+    }
+
+    public void start(){
+        Thread t = new Thread(new RunnableTask());
+        t.start();
     }
 
     public void executorService() {
@@ -82,18 +89,18 @@ class CallableTask implements Callable<Integer> {
         this.number = number;
     }
 
-    public Integer call() throws InvalidParamaterException {
+    public Integer call() throws InvalidParameterException {
 
         if (number < 0) {
-            throw new InvalidParamaterException("Number should be positive");
+            throw new InvalidParameterException("Number should be positive");
         }
 
         return number * number;
     }
 }
 
-class InvalidParamaterException extends Exception {
-    public InvalidParamaterException(String message) {
+class InvalidParameterException extends Exception {
+    public InvalidParameterException(String message) {
         super(message);
     }
 }
