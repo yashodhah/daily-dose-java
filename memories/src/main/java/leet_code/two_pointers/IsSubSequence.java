@@ -1,4 +1,4 @@
-package leet_code;
+package leet_code.two_pointers;
 
 public class IsSubSequence {
     public boolean isSubsequence_1(String s, String t) {

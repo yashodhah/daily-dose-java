@@ -1,4 +1,4 @@
 package packagea;
 
-public class Putar{
+public final class Putar {
 }
