@@ -1,4 +1,4 @@
-package leet_code;
+package leet_code.sliding_window;
 
 import java.util.Set;
 
