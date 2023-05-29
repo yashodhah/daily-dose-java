@@ -12,10 +12,8 @@
     <modules>
         <module>java-8plus</module>
         <module>java-8</module>
-        <module>memories</module>
+        <module>leet-code</module>
         <module>common</module>
-        <module>SPI</module>
-        <module>leet_code</module>
     </modules>
 
 

@@ -1,3 +1,5 @@
+package equals_hashcode;
+
 import equals_hashcode.Money;
 import equals_hashcode.MoneyNew;
 import equals_hashcode.MoneyRecord;
@@ -5,8 +7,6 @@ import equals_hashcode.Voucher;
 import nl.jqno.equalsverifier.EqualsVerifier;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-
-import java.util.HashSet;
 
 public class MoneyTest {
 
