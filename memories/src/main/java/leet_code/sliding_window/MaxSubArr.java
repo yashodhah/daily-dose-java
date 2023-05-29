@@ -18,8 +18,8 @@ public class MaxSubArr {
      * @return
      */
     public double findMaxAverage(int[] nums, int k) {
-        double sumSoFar = findSum(nums, k);
-        double maxSoFar = sumSoFar;
+        long sumSoFar = findSum(nums, k);
+        long maxSoFar = sumSoFar;
 
         int i = 0;
 
@@ -30,14 +30,16 @@ public class MaxSubArr {
                 maxSoFar = sumSoFar;
             }
 
+//            maxSoFar = Math.max(maxSoFar, sumSoFar);
+
             i++;
         }
 
-        return maxSoFar / k;
+        return maxSoFar / 1.0 / k;
     }
 
-    public double findSum(int[] nums, int k) {
-        double sum = 0;
+    public long findSum(int[] nums, int k) {
+        long sum = 0;
 
         for (int i = 0; i < k; i++) {
             sum += nums[i];
@@ -55,7 +57,7 @@ public class MaxSubArr {
 
 
         int[] ints1 = {3, 3, 4, 3, 0};
-        double b= maxSubArr.findMaxAverage(ints1, 3);
+        double b = maxSubArr.findMaxAverage(ints1, 3);
         System.out.println(b);
 
     }

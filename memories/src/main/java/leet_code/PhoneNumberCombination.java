@@ -40,7 +40,6 @@ public class PhoneNumberCombination {
         }
     }
 
-
     private List<String> getPermutations(List<String> l1, List<String> l2) {
         List<String> out = new ArrayList();
 

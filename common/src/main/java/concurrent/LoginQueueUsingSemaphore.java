@@ -22,14 +22,14 @@ class LoginQueueUsingSemaphore {
         return semaphore.availablePermits();
     }
 
-    class WierdTask implements Callable {
+    class LoginTask implements Callable {
         @Override
         public Object call() throws Exception {
-            executeCriticalSection();
+            performLogin();
             return null;
         }
 
-        void executeCriticalSection() throws InterruptedException {
+        void performLogin() throws InterruptedException {
             trace("Available permit : " + semaphore.availablePermits());
             trace("Number of threads waiting to acquire: " + semaphore.getQueueLength());
 
@@ -38,6 +38,7 @@ class LoginQueueUsingSemaphore {
                     Thread.sleep(getRandomNumber());
                     trace("finished critical section");
                 } finally {
+                    // can use semaphore.release(10) to release 10 permits, initial slot is not a indication of some threshold.
                     semaphore.release();
                 }
             }
@@ -48,15 +49,15 @@ class LoginQueueUsingSemaphore {
         }
     }
 
-    public void trace(String message) {
+    private void trace(String message) {
         System.out.println(Thread.currentThread().getName() + " : " + message);
     }
 
     public void runSim() {
-        int users = 20;
+        int users = 100;
         ExecutorService executorService = Executors.newFixedThreadPool(users);
 
-        IntStream.range(0, users).forEach(user -> executorService.submit(new WierdTask()));
+        IntStream.range(0, users).forEach(user -> executorService.submit(new LoginTask()));
         executorService.shutdown();
     }
 
