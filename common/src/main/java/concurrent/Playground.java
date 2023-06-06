@@ -12,7 +12,7 @@ class ConcurrentPlayground {
         cp.executorService();
     }
 
-    public void start(){
+    public void start() {
         Thread t = new Thread(new RunnableTask());
         t.start();
     }
@@ -30,7 +30,7 @@ class ConcurrentPlayground {
          * the original exception
          */
         try {
-            Future future3 = executor.submit(new CallableTask(-1));
+            Future future3 =  executor.submit(new CallableTask(-1));
             Integer result = (Integer) future3.get();
         } catch (ExecutionException e) {
             System.out.println(e);
@@ -39,7 +39,7 @@ class ConcurrentPlayground {
         }
 
         // futures
-        Future<String> future = executor.submit(() -> {
+        Future<String> future = (Future<String>) executor.submit(() -> {
             Thread.sleep(2000l);
             return "Hello world";
         });

@@ -1,4 +1,4 @@
-package tutorials.java_eight.default_methods;
+package default_methods;
 
 interface Vehicle {
     String getBrand();
@@ -10,7 +10,7 @@ interface Vehicle {
 
     /**
      * Default methods are used to push functionalities to subclasses in a controlled manner
-     * + With backward compatibility
+     * With backward compatibility
      *
      * @return
      */

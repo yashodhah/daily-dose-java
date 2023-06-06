@@ -1,4 +1,4 @@
-package tutorials.java_eight.streams;
+package streams;
 
 import java.nio.charset.Charset;
 import java.nio.file.Files;
