@@ -45,7 +45,8 @@ class FooWithWaitAndNotify implements IFoo {
     /**
      * A thread can also wake up without being notified, interrupted,
      * or timing out, a so-called spurious wakeup.
-     * While this will rarely occur in practice, applications must guard against it
+     * While this will rarely occur in practice, applications must guard against it.
+     * That's why we are using a while loop here so ot will check before proceeding
      * @param printSecond
      */
     public synchronized void second(Runnable printSecond) {
@@ -146,7 +147,11 @@ class FooSemaphore implements IFoo {
     }
 
     public void second(Runnable printSecond) throws InterruptedException {
-        s1.acquire(); // blocking until acquiring
+        /**
+         * blocking until some other threads release a permit on this semaphore
+         * tryAcquire would return false if no permits available
+         */
+        s1.acquire();
         printSecond.run();
         s2.release();
     }
