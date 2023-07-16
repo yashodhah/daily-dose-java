@@ -6,60 +6,49 @@ public class MaxVowels {
     Set<Character> vowels = Set.of('a', 'e', 'i', 'o', 'u');
 
     public int maxVowels(String s, int k) {
-        int start = 0;
-        int maxSoFar = 0;
+        int maxCount = 0;
 
-        while (s.length() - start > k - 1) {
-            VowelInfo vowelInfo = getNuOfVowels(s, start, k);
+        // calculate in the first window
+        for (int i = 0; i < k; i++) {
+            if (isVowel(s, i)) {
+                maxCount++;
+            }
+        }
 
-            if (vowelInfo.count() > maxSoFar) {
-                maxSoFar = vowelInfo.count();
+        if (maxCount == k) {
+            return maxCount;
+        }
+
+        // calculate while sliding the window. and removing what's being dropping from the window
+        int count = maxCount;
+
+        for (int i = k; i < s.length(); i++) {
+            if (isVowel(s, i)) {
+                count++;
             }
 
-            if (vowelInfo.count() == k || start == s.length() - k) {
+            if (isVowel(s, i - k)) {
+                count--;
+            }
+
+            maxCount = Math.max(maxCount, count);
+
+            if (maxCount == k) {
                 break;
             }
-
-            start = Math.min(s.length() - k, vowelInfo.startIdx());
         }
 
-        return maxSoFar;
+        return maxCount;
     }
 
-    private VowelInfo getNuOfVowels(String s, int start, int window) {
-        int count = 0;
-        int idxLastVowel = -1;
-        int end = start + window;
-
-        String sub = s.substring(start, end);
-
-        for (int i = 0; i < sub.length(); i++) {
-            char c = sub.charAt(i);
-
-            if (vowels.contains(c)) {
-                count++;
-
-                if (i != 0 && idxLastVowel < 0) {
-                    idxLastVowel = i;
-                }
-            }
-        }
-
-        if (idxLastVowel < 0) {
-            idxLastVowel = end;
-        } else {
-            idxLastVowel = start + idxLastVowel;
-        }
-
-        return new VowelInfo(count, idxLastVowel);
+    private boolean isVowel(String s, int i) {
+        return vowels.contains(s.charAt(i));
     }
 
     public static void main(String[] args) {
         MaxVowels m = new MaxVowels();
-        int count = m.maxVowels("abciiidef", 3);
+
+        int count = m.maxVowels("tryhard", 4);
         System.out.println(count);
     }
-}
-
-record VowelInfo(int count, int startIdx) {
 }

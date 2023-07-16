@@ -11,7 +11,7 @@ public class ThreadPool {
 }
 
 class SingleThreadPool {
-    private static ExecutorService singlePool = Executors.newSingleThreadExecutor();
+    private static ExecutorService singlePool = (ExecutorService) Executors.newSingleThreadExecutor();
 
     void submit(Runnable runnable) {
         singlePool.execute(runnable);
