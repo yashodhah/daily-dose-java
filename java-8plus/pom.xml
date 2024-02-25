@@ -20,6 +20,7 @@
         <module>record</module>
         <module>aot</module>
         <module>utils</module>
+        <module>virtual-threads</module>
     </modules>
 
     <dependencies>

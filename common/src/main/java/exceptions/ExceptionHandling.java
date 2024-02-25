@@ -1,6 +1,5 @@
 package exceptions;
-
-public class ExceptionHandling {
+class ExceptionHandling {
     void doSomeIllegalShit() throws Exception {
         try {
             System.out.println("try");
@@ -15,4 +14,27 @@ public class ExceptionHandling {
         ExceptionHandling eh = new ExceptionHandling();
         eh.doSomeIllegalShit();
     }
+}
+
+class Player {
+    void getStat() throws PlayerException {
+    }
+}
+
+class FootBallPlayer extends Player {
+    @Override
+    void getStat() {
+    }
+}
+
+class PlayerException extends Exception {
+
+}
+
+class FootballException extends PlayerException {
+
+}
+
+class WierdException extends Exception {
+
 }
