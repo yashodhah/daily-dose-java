@@ -1,13 +1,15 @@
 package packagec;
 
 
-//public abstract sealed class Person permits Employee, Manager {
-//
-//}
+import org.junit.jupiter.api.Test;
 
-public abstract  class Person {
+public abstract sealed class Person permits Employee, Manager {
 
 }
+
+//public abstract  class Person {
+//
+//}
 
 final class Employee extends Person {
     int getEmployeeId() {
@@ -17,11 +19,30 @@ final class Employee extends Person {
 
 final class Manager extends Person {
     int getSupervisorId() {
-        return 1;
+        return 12;
     }
 }
 
+
 class Main {
+
+    @Test
+    public void matchEmKEvin() {
+        getUniqueId(new Manager());
+    }
+
+    /**
+     * preview mode
+     * @param person
+     * @return
+     */
+    int getUniqueId(Person person) {
+        return switch (person) {
+            case Employee t -> t.getEmployeeId();
+            case Manager c -> c.getSupervisorId();
+        };
+    }
+
     Object run(Person person) {
         if (person instanceof Employee) {
             return ((Employee) person).getEmployeeId();

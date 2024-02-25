@@ -7,7 +7,6 @@ package leet_code.sliding_window;
  */
 public class MaxSubArr {
 
-
     /**
      * n == nums.length
      * 1 <= k <= n <= 10**5
