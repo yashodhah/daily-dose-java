@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.util.*;
+import java.util.concurrent.CopyOnWriteArraySet;
 import java.util.stream.Collectors;
 
 
@@ -23,9 +24,9 @@ public class CollectionTest {
         Assertions.assertTrue(s.size() ==2);
     }
 
-
     @Test
-    void shouldBeAbleToTraverseACollection(){
+    void traverseACollection(){
+        // TODO: Use annotation based resolving to get a collection based implementation
 //        Collection<String> c = CollectionTestHelper.getArrayList();
         Collection<String> c = CollectionTestHelper.getHashSet();
 
@@ -33,7 +34,8 @@ public class CollectionTest {
         /**
          * using aggregation operations like forEach, filter .....
          * streams are not like collection as they are not data structures
-         * They just create pipelines from sources like collection, Arrays ... We can perform stream operations on a stream
+         * They just create pipelines from sources like collection, Arrays ...
+         * We can perform stream operations on a stream
          */
         String joined = c.stream().filter(e-> !e.contains("z")).collect(Collectors.joining(":"));
         Assertions.assertTrue(joined.equals("a:b:c"));
@@ -67,8 +69,32 @@ public class CollectionTest {
         }
 
         Assertions.assertEquals(3,  c.size());
+    }
 
+    @Test
+    void usageOfFailFastIterator(){
+        Assertions.assertThrows(ConcurrentModificationException.class, ()-> {
+            Collection<String> c = CollectionTestHelper.getHashSet();
+
+            Iterator<String> it = c.iterator();
+            while (it.hasNext()) {
+                String str = it.next();
+                c.add(str + "test");
+            }
+        });
     }
 
 
+    @Test
+    void usageOfConcurrentCollection(){
+        Collection<String> c = new CopyOnWriteArraySet<>(CollectionTestHelper.getHashSet());
+
+        Iterator<String> it = c.iterator();
+        while (it.hasNext()) {
+            String str = it.next();
+            c.add(str + "test");
+        }
+
+        System.out.println("collection size after iteration: " + c.size());
+    }
 }
