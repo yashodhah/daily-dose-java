@@ -5,8 +5,6 @@ import java.util.concurrent.*;
 class ConcurrentPlayground {
     public static void main(String[] args) {
         ConcurrentPlayground cp = new ConcurrentPlayground();
-
-
         cp.start();
         cp.execute();
         cp.executorService();

@@ -23,6 +23,10 @@ class Office extends Building {
     void paint() {
         System.out.println("Painting the damn office building");
     }
+
+    void repair(){
+        System.out.println("repair");
+    }
 }
 
 class Generics {

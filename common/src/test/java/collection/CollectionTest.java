@@ -97,4 +97,10 @@ public class CollectionTest {
 
         System.out.println("collection size after iteration: " + c.size());
     }
+
+
+    void collectionStaticMethods(){
+        Collections.unmodifiableList(CollectionTestHelper.getArrayList());
+        List.of("key", "value");
+    }
 }
