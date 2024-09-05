@@ -3,9 +3,8 @@ package collection;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import java.util.LinkedList;
-import java.util.List;
-import java.util.ListIterator;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class ListTest {
 
@@ -33,11 +32,19 @@ public class ListTest {
 
     @Test
     void linkedListBenefits (){
-        LinkedList<String> linkedList = new LinkedList<>();
+        List<String> linkedList1 = new LinkedList<>();
+        Queue<String> linkedList2 = new LinkedList<>();
+        LinkedList<String> linkedList3 = new LinkedList<>();
     }
 
+    @Test
+    void listSort(){
+        List<CollectionTestHelper.Employee>
+                employeeList = CollectionTestHelper.getEmployeeArrayList();
 
-
-
+        System.out.println(employeeList.stream().map(e-> e.salary).collect(Collectors.toList()));
+        Collections.sort(employeeList);
+        System.out.println(employeeList.stream().map(e-> e.salary).collect(Collectors.toList()));
+    }
 
 }

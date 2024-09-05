@@ -99,8 +99,10 @@ public class CollectionTest {
     }
 
 
+    @Test
     void collectionStaticMethods(){
         Collections.unmodifiableList(CollectionTestHelper.getArrayList());
         List.of("key", "value");
     }
+
 }
