@@ -1,6 +1,6 @@
-package concurrent.platform.low_level;
+package concurrent.platform.basic;
 
-import lombok.SneakyThrows;
+import helpers.CPUBoundTask;
 import org.junit.jupiter.api.Test;
 
 public class ThreadBasicsTest {
@@ -39,6 +39,7 @@ public class ThreadBasicsTest {
 
             if (Thread.interrupted()){
                 System.out.println("oh !! no !!");
+                CPUBoundTask.getNumberOfPrimes(Integer.MAX_VALUE);
                 return;
             }
 
